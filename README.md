@@ -1,132 +1,153 @@
-# Image Captioning System using Vision Transformer and GPT-2
+# 🧠 Image Captioning System using Vision Transformer & GPT-2
 
-## Overview
+## 📌 Overview
 
-This project implements an Image Captioning System using a Vision Transformer (ViT) encoder and GPT-2 decoder architecture. The model automatically generates natural language descriptions for images by combining computer vision and natural language processing techniques.
+This project implements a deep learning-based **Image Captioning System** that automatically generates natural language descriptions for images.
 
-The project is based on the pre-trained `nlpconnect/vit-gpt2-image-captioning` model and was further trained and evaluated on the Microsoft COCO 2017 dataset.
+The system combines:
 
----
+- A **Vision Transformer (ViT)** as an image encoder
+- A **GPT-2 Transformer** as a text decoder
 
-## Features
-
-* Automatic image caption generation
-* Transfer learning using Vision Transformer (ViT) and GPT-2
-* Fine-tuning on the COCO 2017 dataset
-* Beam Search decoding for improved caption quality
-* Evaluation using BLEU, ROUGE-L, and METEOR metrics
-* Mixed Precision Training (AMP) for faster training
-* Checkpoint saving and training resumption support
-* Learning rate scheduling using Cosine Annealing
+The model is fine-tuned on the **Microsoft COCO 2017 dataset** and trained using PyTorch with mixed precision and advanced optimization strategies.
 
 ---
 
-## Dataset
+## 🚀 Key Features
 
-### Microsoft COCO 2017
-
-The project uses:
-
-* COCO Train2017
-* COCO Validation2017
-* COCO Caption Annotations
-
-Training subset:
-
-* 50,000 images
-
-Validation subset:
-
-* 2,000 images
+- 🖼️ Automatic image caption generation
+- 🔥 Vision Transformer + GPT-2 architecture (Encoder–Decoder)
+- 📊 Fine-tuned on COCO 2017 dataset
+- 🎯 Beam Search decoding for higher-quality captions
+- 📉 Evaluation using BLEU, ROUGE-L, METEOR
+- ⚡ Mixed Precision Training (AMP)
+- 💾 Checkpoint saving & training resume support
+- 📈 Cosine Annealing Learning Rate Scheduler
+- 📊 Training visualization (loss & metrics curves)
 
 ---
 
-## Model Architecture
+## 📂 Dataset
 
-Encoder:
+### Microsoft COCO 2017 Dataset
 
-* Vision Transformer (ViT)
+**Used subsets:**
 
-Decoder:
+- Training: 50,000 images
+- Validation: 2,000 images
 
-* GPT-2 Language Model
+**Includes:**
 
-Pretrained Model:
-
-* nlpconnect/vit-gpt2-image-captioning
-
----
-
-## Technologies Used
-
-* Python
-* PyTorch
-* Hugging Face Transformers
-* COCO API
-* NumPy
-* Matplotlib
-* Evaluate
-* NLTK
+- train2017
+- val2017
+- captions_train2017.json
+- captions_val2017.json
 
 ---
 
-## Training Configuration
+## 🧠 Model Architecture
 
-* Batch Size: 8
-* Gradient Accumulation: 4
-* Learning Rate: 2e-6
-* Epochs: 6
-* Beam Size: 5
-* Maximum Caption Length: 32
+### Encoder
 
----
+- Vision Transformer (ViT)
+- Extracts high-level visual features
 
-## Evaluation Metrics
+### Decoder
 
-The model is evaluated using:
+- GPT-2 Transformer
+- Generates natural language captions
 
-* BLEU
-* ROUGE-L
-* METEOR
-* Token Overlap Accuracy
+### Full Pipeline
+
+Image → ViT Encoder → Transformer Decoder (GPT-2) → Caption
 
 ---
 
-## Example Output
+## 🛠️ Technologies Used
 
-Input Image:
-
-[Sample Image]
-
-Generated Caption:
-
-"A group of people standing near a train station."
+- Python
+- PyTorch
+- Hugging Face Transformers
+- COCO API (pycocotools)
+- NumPy
+- Matplotlib
+- Evaluate (BLEU, ROUGE, METEOR)
+- Google Colab
 
 ---
 
-## Project Structure
+## ⚙️ Training Configuration
 
-```text
+| Parameter             | Value            |
+| --------------------- | ---------------- |
+| Batch Size            | 8                |
+| Gradient Accumulation | 4                |
+| Learning Rate         | 2e-6             |
+| Epochs                | 6                |
+| Beam Size             | 5                |
+| Max Caption Length    | 32               |
+| Optimizer             | AdamW            |
+| Scheduler             | Cosine Annealing |
+
+---
+
+## 📊 Evaluation Metrics
+
+- BLEU Score → n-gram precision
+- ROUGE-L → sequence matching quality
+- METEOR → semantic similarity
+- Token Overlap Accuracy
+
+---
+
+## 📈 Training Highlights
+
+- Stable convergence across epochs
+- Reduced loss via cosine learning rate decay
+- Improved caption fluency using beam search
+- Regular checkpoint saving to Google Drive
+
+---
+
+## 🧪 Example Output
+
+**Input Image:**  
+Any COCO-style image
+
+**Generated Caption:**
+
+> A group of people standing near a train station.
+
+---
+
+## 📁 Project Structure
+
 Image-Captioning-System/
 │
 ├── notebook/
-│   └── sems_p.ipynb
+│ └── image_captioning.ipynb
 │
-├── docs/
-│   ├── sems_project.pdf
-│   └── presentation.pptx
+├── checkpoints/
+│ └── model.safetensors
 │
 ├── data/
-│   └── captions.txt.zip
+│ └── COCO dataset
 │
 ├── requirements.txt
 └── README.md
-```
 
 ---
 
-## Author
+## 👨‍💻 Author
 
-Maged Hujira
+**Maged Hujira**  
+🎓 semester Project – Artificial Intelligence  
+💡 Focus: Computer Vision & Natural Language Processing
 
-Semester Project – Artificial Intelligence
+---
+
+## 🏁 Status
+
+✔️ Project Completed  
+✔️ Fully Trained & Evaluated  
+✔️ Ready for Deployment / Demonstration
